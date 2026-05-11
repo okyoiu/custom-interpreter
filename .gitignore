@@ -1,0 +1,29 @@
+# Build directories
+build/
+out/
+cmake-build-*/
+
+# Compiled objects and binaries
+*.o
+*.a
+*.so
+*.out
+
+# CMake generate files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+MakeFile
+*.cmake
+# Don't ignore this file (!)
+!CMakeLists.txt 
+
+# IDE/Editor artifacts (preferences)
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Test binaries
+tests/bin/
