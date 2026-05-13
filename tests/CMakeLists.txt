@@ -11,10 +11,19 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # creating the test program (built from lexer_test.cpp file only)
-add_executable(interpreter_tests lexer_test.cpp)
+add_executable(interpreter_tests 
+    lexer_test.cpp 
+    ${PROJECT_SOURCE_DIR}/src/lexer/Lexer.cpp
+)
 
 # linking the Google Test library to the interpreter_tests program
 target_link_libraries(interpreter_tests gtest_main)
+
+# Tell the compiler to look in the include/lexer folder for .h files
+target_include_directories(interpreter_tests PRIVATE 
+    ${PROJECT_SOURCE_DIR}/include/lexer
+    ${PROJECT_SOURCE_DIR}/include
+)
 
 # pure CMake that searches every single TEST() block writen and registered to master list
 include(GoogleTest)
