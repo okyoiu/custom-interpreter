@@ -1,66 +1,74 @@
-# Custom Scripting Language Interpreter
+# Custom C++ Scripting Language
 
 A hand-crafted, statically-typed scripting language interpreter built entirely from scratch in modern C++ (C++20). 
 
-This project demonstrates deep systems-level programming, memory management, and compiler theory. It avoids parser generators (like YACC/Bison) in favor of a custom Recursive Descent Parser and manually managed Abstract Syntax Trees (AST).
+This project demonstrates systems-level programming, memory management, and compiler theory. It bypasses automated parser generators (like YACC/Bison) in favor of a custom Recursive Descent Parser and a manually managed, memory-safe Abstract Syntax Tree (AST).
 
-## Project Architecture
-The interpreter follows a classic multi-stage pipeline. Currently, the Lexical Analysis phase is complete and fully tested.
+**Repository:** [https://github.com/okyoiu/custom-interpreter.git](https://github.com/okyoiu/custom-interpreter.git)
+
+---
+
+## Architecture & Pipeline
+
+The interpreter follows a classic multi-stage pipeline.
 
 | Stage | Responsibility | Status |
 | :--- | :--- | :--- |
 | **Lexer (Scanner)** | Converts raw characters into a stream of typed Tokens. | **Complete** |
-| **Parser** | Validates grammar and builds the Abstract Syntax Tree (AST). | *In Progress* |
+| **Parser** | Validates grammar and builds the Abstract Syntax Tree (AST). | **Complete** |
 | **Evaluator** | Executes the logic within lexical scopes and environments. | *Planned* |
 
 ---
 
-## Tech Stack & Requirements
-* **Compiler:** C++20 (supports std::unique_ptr, enum class, and advanced string handling).
-* **Build System:** CMake (Version 3.10+).
-* **Testing Framework:** Google Test (gtest) – Integrated via FetchContent for zero-install portability.
-* **Platform:** macOS (Apple Silicon), Linux, or WSL.
+## Tech Stack & Tooling
 
+* **Language:** C++20 (utilizing std::unique_ptr, enum class, etc.)
+* **Build System:** CMake (Version 3.10+)
+* **Testing:** Google Test (gtest) integrated via FetchContent
+* **Platform:** macOS (Apple Silicon), Linux, or WSL
+
+---
 
 ## Getting Started
 
 ### 1. Prerequisites
-Ensure you have a modern C++ compiler and CMake installed:
 
-```bash
-# macOS
-brew install cmake googletest
+Ensure you have a modern C++ compiler and CMake installed on your system.
 
-# Ubuntu/Debian
-sudo apt install build-essential cmake libgtest-dev
+**macOS:**
+
+    brew install cmake googletest
+
+**Ubuntu/Debian:**
+
+    sudo apt install build-essential cmake libgtest-dev
 
 
-## Build Instructions
-This project uses CMake for out-of-source builds.
+### 2. Build Instructions
 
-```bash
-# 1. Clone the repository
-git clone 
-cd YOUR_REPO_NAME
+This project uses CMake for out-of-source builds to keep the repository clean.
 
-# 2. Generate the build files
-mkdir build && cd build
-cmake -DCMAKE_BUILD_TYPE=Debug ..
+    # Clone the repository
+    git clone https://github.com/okyoiu/custom-interpreter.git
+    cd custom-interpreter
 
-# 3. Compile the interpreter and test suite
-make -j$(nproc)
+    # Generate the build files
+    cmake -S . -B build
 
-# 4. Run the test suite
-ctest --output-on-failure
+    # Compile the interpreter and test suite
+    cmake --build build
 
-# 5. Start the REPL
-./interpreter
-```
 
-## Running Testing environment
+### 3. Running the Test Suite
 
-Verification is baked into the development workflow. To run the Lexer test suite:
+Verification is baked into the development workflow using Google Test. To run the test suites and verify your build:
 
-```bash
-./tests/interpreter_tests
-```
+    ./build/tests/interpreter_tests
+
+*(Alternatively, you can navigate into the build directory and run `ctest --output-on-failure`)*
+
+### 4. Running the Interpreter
+
+Once compiled, you can start the REPL (Read-Eval-Print Loop) environment:
+
+    ./build/interpreter
