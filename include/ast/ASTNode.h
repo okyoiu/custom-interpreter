@@ -12,6 +12,5 @@ struct ASTNode {
     int line = 0; // Crucial for error reporting later!
 };
 
-// The strict ownership alias Claude mentioned. 
 // A parent strictly owns its children.
 using ASTNodePtr = std::unique_ptr<ASTNode>;

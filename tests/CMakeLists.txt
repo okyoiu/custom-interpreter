@@ -13,9 +13,11 @@ FetchContent_MakeAvailable(googletest)
 # creating the test program (built from lexer_test.cpp file only)
 add_executable(interpreter_tests 
     lexer_test.cpp 
+    parser_test.cpp
     ${PROJECT_SOURCE_DIR}/src/lexer/Lexer.cpp
+    ${PROJECT_SOURCE_DIR}/src/parser/Parser.cpp  
+    ${PROJECT_SOURCE_DIR}/src/ast/AstPrinter.cpp 
 )
-
 # linking the Google Test library to the interpreter_tests program
 target_link_libraries(interpreter_tests gtest_main)
 
