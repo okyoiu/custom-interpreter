@@ -3,7 +3,7 @@ project(InterpreterSystem VERSION 1.0 LANGUAGES CXX)
 
 # 1. Enforcing modern C++
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 2. Strict compiler Flags
 # quick sum: 
