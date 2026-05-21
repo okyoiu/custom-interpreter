@@ -2,9 +2,15 @@
 
 A hand-crafted, statically-typed scripting language interpreter built entirely from scratch in modern C++ (C++20). 
 
+![A visual representation of Project](https://haqr.eu/tinycompiler/sly/parsing-primer.png)
+
+*Image credit: https://haqr.eu/tinycompiler/sly/*
+
 This project demonstrates systems-level programming, memory management, and compiler theory. It bypasses automated parser generators (like YACC/Bison) in favor of a custom Recursive Descent Parser and a manually managed, memory-safe Abstract Syntax Tree (AST).
 
 **Repository:** [https://github.com/okyoiu/custom-interpreter.git](https://github.com/okyoiu/custom-interpreter.git)
+
+For more detailed information on the theoretical foundations of this project, please refer to the [Wikipedia article on Lexical Analysis](https://en.wikipedia.org/wiki/Lexical_analysis).
 
 ---
 
